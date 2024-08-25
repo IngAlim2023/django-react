@@ -1,0 +1,46 @@
+# Python
+apiFul/__pycache__/
+*.py[cod]
+*.sqlite3
+*.env
+
+# Django
+*.log
+*.pot
+*.pyc
+*.so
+*.pyo
+*.out
+*.pid
+*.log
+*.sqlite3
+apiFul/db.sqlite3
+apiFul/__pycache__
+db.sqlite3-journal
+media
+staticfiles
+/local_settings.py
+*.mo
+*.pot
+*.py[cod]
+/staticfiles
+/public/static
+/public/media
+public/static/
+/local_settings.py
+.env
+
+# Node.js
+cliente/node_modules/
+cliente/package-lock.json
+cliente/package.json
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# React
+build/
+.DS_Store
+
+# Entorno virtual
+entorno/

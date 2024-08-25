@@ -1,0 +1,26 @@
+Creamos nuestro proyecto en django -- pasos en documento notas píldoras:
+con nuestro entorno virtual activado insertamos las siguientes librerias:
+
+* pip install djangorestframework //Permite la creación de APIREST
+* pip install django-cors-headers //para comunicar los servidores
+
+agregamos a nuestro settings:
+THIRD_PARTY_APPS = [
+    'corsheaders',
+    'rest_framework',
+]
+
+añadimos en nuestro MIDDLEWARE el course en la posición indicada:
+MIDDLEWARE = [
+    ...,
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    ...,
+]
+
+añadimos los puertos permitidos para la comunicación de la API en settings:
+
+#-----------------------Mis Configuraciones--------------
+
+# Autorización de  conexión
+CORS_ALLOWED_ORIGINS = []
