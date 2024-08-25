@@ -1,13 +1,19 @@
 import { SelectDoc } from "../components/SelectDoc";
 import { useForm } from "react-hook-form";
 import { createCliente } from "../api/cliente.api";
+import {toast} from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export function ClienteFormPage() {
   const { register, handleSubmit, control } = useForm(); // Añadir 'control'
   
+  // Navegar entre paginas
+  const navigate = useNavigate();
+
   const onSubmit = handleSubmit(async (data) => {
     const res = await createCliente(data);
-    console.log(res);
+    toast.success("Cliente creado");
+    navigate("/cliente")  
   });
 
   return (
