@@ -1,5 +1,8 @@
 import axios from 'axios';
 
-export const getALlCliente = () =>{
-    return axios.get("http://localhost:8000/cliente/api/v1/cliente/")
-}
+const clienteApi = axios.create({
+    baseURL:"http://localhost:8000/cliente/api/v1/cliente/",
+})
+
+export const getALlCliente = () => clienteApi.get("/");
+export const createCliente = (cliente) => clienteApi.post("/", cliente);
