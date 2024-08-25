@@ -12,6 +12,7 @@ function App() {
         <Route path="/" element={<Navigate to="/cliente" />} />
         <Route path="/cliente" element={<ClientePage />} />
         <Route path="/cliente-create" element={<ClienteFormPage />} />
+        <Route path="/cliente/:id" element={<ClienteFormPage />} />
       </Routes>
       <Toaster/>
     </BrowserRouter>
