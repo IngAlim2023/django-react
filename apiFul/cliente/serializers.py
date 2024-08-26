@@ -4,7 +4,7 @@ from rest_framework import serializers
 class TiDoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoDocumento
-        fields = ['tipo_documento']
+        fields = '__all__'
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:

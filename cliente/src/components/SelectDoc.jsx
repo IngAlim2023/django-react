@@ -14,9 +14,9 @@ export function SelectDoc({ control }) {
     loadDocs();
   }, []);
 
-  const options = docs.map((opc, index) => ({
+  const options = docs.map((opc) => ({
     //Arregle los valores del index por la base de datos no tomaba el primer valor igual a cero
-    value: index + 1,
+    value: opc.id,
     label: opc.tipo_documento
   }));
 
