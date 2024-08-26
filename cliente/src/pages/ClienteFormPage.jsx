@@ -13,10 +13,16 @@ export function ClienteFormPage() {
   const params = useParams();
 
   const onSubmit = handleSubmit(async (data) => {
-    const res = await createCliente(data);
-    toast.success("Cliente creado");
-    navigate("/cliente")  
+    console.log(data)
+    try {
+        await createCliente(data);
+        toast.success("Cliente creado");
+        navigate("/cliente");
+    } catch (error) {
+        console.error("Error en la solicitud:", error.response.data);
+    }
   });
+
 
   return (
     <div style={{width:"30%"}}>
@@ -36,6 +42,7 @@ export function ClienteFormPage() {
           placeholder="email"
           {...register("email", { required: true })}
         />
+        <SelectDoc control={control} /> {/* Pasar 'control' */}
         <input
           type="number"
           placeholder="Número de identificación"
@@ -47,7 +54,7 @@ export function ClienteFormPage() {
           {...register("address", { required: true })}
         />
         <input
-          type="number"
+          type="text"
           placeholder="Número de telefono"
           {...register("phone", { required: true })}
         />
@@ -55,7 +62,7 @@ export function ClienteFormPage() {
           type="date"
           {...register("birthday", { required: true })}
         />
-        <SelectDoc control={control} /> {/* Pasar 'control' */}
+        
         <button type="submit">Guardar</button>
       </form>
       {params.id && <button
@@ -65,9 +72,6 @@ export function ClienteFormPage() {
             await deleteCliente(params.id);
             navigate("/cliente");
             toast.success(`Se ha eliminado el cliente ${params.id}`);
-          }else{
-            navigate("/cliente");
-            toast.success(`No se elimino ${params.id}`);
           }
         }}
       >Eliminar</button>}

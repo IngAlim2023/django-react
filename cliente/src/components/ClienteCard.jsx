@@ -9,10 +9,15 @@ export function ClienteCard({cliente}) {
       navigate(`/cliente/${cliente.id}`)
     }}
     >
-      <h1>{cliente.nombre}</h1>
-      <h1>{cliente.Apellido}</h1>
-      <h1>{cliente.email}</h1>
-      <h1>{cliente.phone}</h1>
+      <hr />
+      <h1>Nombre: {cliente.nombre}</h1>
+      <h1>Apellido: {cliente.Apellido}</h1>
+      <p>Correo: {cliente.email}</p>
+      <p>Telefono: {cliente.phone}</p>
+      <p>No de identidad: {cliente.identification}</p>
+      <p>Dirección: {cliente.adress}</p>
+      <p>Telefono: {cliente.phone}</p>
+      <p>Fecha de nacimiento: {cliente.birthday}</p>
       <hr/>
     </div>
   );
