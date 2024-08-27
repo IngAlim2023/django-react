@@ -4,12 +4,5 @@
 
 body {
   background: #202020;
-}
-.form-cliente{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  gap: 3px;
-  
+  color: aliceblue;
 }

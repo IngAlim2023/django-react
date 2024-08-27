@@ -57,52 +57,58 @@ export function ClienteFormPage() {
   }, []);
 
   return (
-    <div
-      style={{
-        width: "30%",
-        backgroundColor: "white",
-        padding: "12px",
-        borderRadius: "20px",
-      }}
-    >
+    <div className="max-w-xl mx-auto">
       <form className="form-cliente" onSubmit={onSubmit}>
         <input
           type="text"
           placeholder="Nombre"
           {...register("nombre", { required: true })}
+          className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
         <input
           type="text"
           placeholder="Apellido"
           {...register("Apellido", { required: true })}
+          className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
         <input
           type="email"
           placeholder="email"
           {...register("email", { required: true })}
+          className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
         {params.id && <label style={{ color: "red" }}>Falta este campo</label>}
-        <SelectDoc control={control} /> {/* Pasar 'control' */}
+        <SelectDoc control={control} className="bg-zinc-700 p-3 rounded-lg block w-full mb-3" /> {/* Pasar 'control' */}
         <input
           type="number"
           placeholder="Número de identificación"
           {...register("identification", { required: true })}
+          className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
         <input
           type="text"
           placeholder="Dirección"
           {...register("address", { required: true })}
+          className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
         <input
           type="text"
           placeholder="Número de telefono"
           {...register("phone", { required: true })}
+          className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
         />
-        <input type="date" {...register("birthday", { required: true })} />
-        <button type="submit">Guardar</button>
+        <input 
+        type="date" 
+        {...register("birthday", { required: true })} 
+        className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"/>
+        <button 
+        type="submit"
+        className="bg-indigo-500 p-3 rounded-lg block w-full mb-3"
+        >Guardar</button>
       </form>
       {params.id && (
         <button
+        className="bg-red-500 p-3 rounded-lg block w-48 mb-3"
           onClick={async () => {
             const aceptar = window.confirm(
               `Estas segur@ de eliminar al cliente ${params.id}`
