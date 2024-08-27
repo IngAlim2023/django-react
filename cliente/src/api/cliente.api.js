@@ -8,3 +8,8 @@ const clienteApi = axios.create({
 export const getALlCliente = () => clienteApi.get("/");
 export const createCliente = (cliente) => clienteApi.post("/", cliente);
 export const deleteCliente = (id) => clienteApi.delete(`/${id}`);
+export const updateCliente = (id, cliente) => clienteApi.put(`/${id}/`, cliente);
+
+//Opcion para tener la información de un cliente (update):
+
+export const getCliente = (id) => clienteApi.get(`/${id}`);

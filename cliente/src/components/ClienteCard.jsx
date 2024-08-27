@@ -15,7 +15,7 @@ export function ClienteCard({cliente}) {
       <p>Correo: {cliente.email}</p>
       <p>Telefono: {cliente.phone}</p>
       <p>No de identidad: {cliente.identification}</p>
-      <p>Dirección: {cliente.adress}</p>
+      <p>Dirección: {cliente.address}</p>
       <p>Telefono: {cliente.phone}</p>
       <p>Fecha de nacimiento: {cliente.birthday}</p>
       <hr/>

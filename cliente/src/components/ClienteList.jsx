@@ -11,7 +11,7 @@ export function ClienteList() {
         }
         loadCliente();
     }, []);
-  return <div>
+  return <div style={{backgroundColor: "grey", borderRadius:"20px"}}>
       {clientes.map(cliente =>(
         <ClienteCard key={cliente.id} cliente={cliente}/>
       ))}

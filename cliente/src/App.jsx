@@ -7,14 +7,16 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
-      <Navegation />
-      <Routes>
-        <Route path="/" element={<Navigate to="/cliente" />} />
-        <Route path="/cliente" element={<ClientePage />} />
-        <Route path="/cliente-create" element={<ClienteFormPage />} />
-        <Route path="/cliente/:id" element={<ClienteFormPage />} />
-      </Routes>
-      <Toaster/>
+      <div className="container mx-auto">
+        <Navegation />
+        <Routes>
+          <Route path="/" element={<Navigate to="/cliente" />} />
+          <Route path="/cliente" element={<ClientePage />} />
+          <Route path="/cliente-create" element={<ClienteFormPage />} />
+          <Route path="/cliente/:id" element={<ClienteFormPage />} />
+        </Routes>
+        <Toaster position="bottom-right" reverseOrder={true} />
+      </div>
     </BrowserRouter>
   );
 }
