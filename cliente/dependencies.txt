@@ -1,0 +1,9 @@
+cliente@0.0.0 C:\Users\ASUS\Documents\API-REST\cliente
+├── axios@1.7.4
+├── react-dom@18.3.1
+├── react-hook-form@7.52.2
+├── react-hot-toast@2.4.1
+├── react-router-dom@6.26.1
+├── react-select@5.8.0
+└── react@18.3.1
+
