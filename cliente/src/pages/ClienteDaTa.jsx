@@ -9,7 +9,6 @@ export function ClienteDaTa() {
     async function loadCliente() {
       const res = await getALlCliente();
       setCliente(res.data);
-      console.log(res.data);
     }
     loadCliente();
   }, []);
@@ -43,33 +42,53 @@ export function ClienteDaTa() {
       className: "text-left text-gray-700",
     },
   ];
-  const datosDaTa = [];
-  const clienteData = () => {
-    clientes.forEach((cliente) => {
-      const datoData = {
+
+  const [records, setRecords] = useState([]);
+  const [busqueda, setBusqueda] = useState([]);
+
+  useEffect(()=>{
+    const clienteData = async () => {
+      const datosDaTa = clientes.map((cliente) => ({
         nombre: cliente.nombre,
         apellido: cliente.Apellido,
         correo: cliente.email,
         creado: cliente.created,
         modificado: cliente.modified
-      };
-      datosDaTa.push(datoData);
-    });
-  };
-  clienteData();
-
-  const buscar = () =>{
+      }));
+      setRecords(datosDaTa)
+      setBusqueda(datosDaTa);
+    };
     
+    clienteData();
+  }, [clientes])
+  
+  const filter = (e) =>{
+    if (e.target.value === ''){
+      setRecords(busqueda);
+    } else {
+      const datafilter = records.filter(record =>{
+        return record.nombre.toLowerCase().includes(e.target.value.toLowerCase())
+      })
+      setRecords(datafilter);
+    }
   }
+
 
   return (
     <div className="container mx-auto my-5 p-4 shadow-lg rounded-lg bg-white">
-      <input type="text" onChange={buscar()} />
+      <label> Busqueda: </label>
+      <input 
+      type="text" 
+      onChange={filter}
+      placeholder=" por nombre"
+      />
       <DataTable
-        data={datosDaTa}
+        title = "Usuarios"
+        data={records}
         className="display"
         columns={columns}
         pagination
+        fixedHeader
         customStyles={{
             headRow: {
                 style: {
