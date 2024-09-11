@@ -42,7 +42,8 @@ export function ClienteDaTa() {
       className: "text-left text-gray-700",
     },
   ];
-
+  //Solucion para la renderización de la tabla:
+  //En records y busqueda traigo los datos de la API que necesito,  
   const [records, setRecords] = useState([]);
   const [busqueda, setBusqueda] = useState([]);
 
@@ -61,7 +62,8 @@ export function ClienteDaTa() {
     
     clienteData();
   }, [clientes])
-  
+  //Filtro los datos con el input en caso de que el input vuelva a vacio seteo los records con la 
+  //busqueda (Nota: debe ser al reves Lol, pero funciona) 
   const filter = (e) =>{
     if (e.target.value === ''){
       setRecords(busqueda);
@@ -76,12 +78,16 @@ export function ClienteDaTa() {
 
   return (
     <div className="container mx-auto my-5 p-4 shadow-lg rounded-lg bg-white">
-      <label> Busqueda: </label>
-      <input 
-      type="text" 
-      onChange={filter}
-      placeholder=" por nombre"
-      />
+      <div className="flex rounded-lg shadow-sm">
+        <span className="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400"> Busqueda: </span>
+        <input 
+        type="text" 
+        onChange={filter}
+        placeholder=" por nombre"
+        className="py-3 px-4 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+        />
+      </div>
+      
       <DataTable
         title = "Usuarios"
         data={records}
